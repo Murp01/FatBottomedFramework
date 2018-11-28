@@ -2,9 +2,11 @@ package steps;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.JavascriptExecutor;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import cucumber.api.DataTable;
@@ -35,13 +37,14 @@ public class PracticeSteps {
 	*/
 	
 	@Given("^user navigates to \"([^\"]*)\"$")
-	public void user_navigates_to(String arg1) throws Throwable {
-
+	public void user_navigates_to(String url) throws Throwable {
+		driver.get(url);
 	}
 
 	@Given("^user clicks on the login portal button$")
 	public void user_clicks_on_the_login_portal_button() throws Throwable {
-
+		WebElement element = driver.findElement(By.id("login-portal"));
+		((JavascriptExecutor)driver).executeScript("arguments[0].click()", element);
 	}
 
 	@Given("^user enters \"([^\"]*)\" username$")
