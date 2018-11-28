@@ -45,8 +45,9 @@ public class PracticeSteps {
 	}
 
 	@When("^I enter last name$")
-	public void i_enter_last_name() throws Throwable {
-		driver.findElement(By.cssSelector("input[name = 'last_name']")).sendKeys("Murphy");
+	public void i_enter_last_name(DataTable arg1) throws Throwable {
+		List <List <String>> data = arg1.raw();
+		driver.findElement(By.cssSelector("input[name = 'last_name']")).sendKeys(data.get(0).get(3));
 	}
 
 	@When("^I enter an email address$")
@@ -58,12 +59,14 @@ public class PracticeSteps {
 	public void i_enter_comments(DataTable arg1) throws Throwable {
 		List<List<String>> data = arg1.raw();
 		driver.findElement(By.cssSelector("textarea[name='message']")).sendKeys(data.get(0).get(0) + "\n");
-		driver.findElement(By.cssSelector("textarea[name='message']")).sendKeys(data.get(0).get(1));
+		driver.findElement(By.cssSelector("textarea[name='message']")).sendKeys(data.get(0).get(1) + "\n");
+		//driver.findElement(By.cssSelector("textarea[name='message']")).sendKeys(data.get(1).get(0) + "\n");
+		driver.findElement(By.cssSelector("textarea[name='message']")).sendKeys(data.get(1).get(1));
 	}
 
 	@When("^I click on the submit button$")
 	public void i_click_on_the_submit_button() throws Throwable {
-
+		//driver.findElement(By.cssSelector("input[value = 'SUBMIT']")).click();
 	}
 
 	@Then("^the information should successfully be submitted via the contact us form$")
