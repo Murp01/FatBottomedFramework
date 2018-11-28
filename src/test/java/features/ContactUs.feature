@@ -1,7 +1,7 @@
 Feature: Submit data to webdriveruniverity.com using contact us form
 	A user should be able to submit information via the contact us form
 	
-@WDUTest
+
 Scenario: Submit information using the contact us form
 	Given I access webdriverunivirsity
 	When I click on the contact us button

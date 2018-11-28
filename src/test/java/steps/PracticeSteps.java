@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import cucumber.api.DataTable;
+import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -23,6 +24,44 @@ public class PracticeSteps {
 		this.driver = new FirefoxDriver();
 		this.driver.manage().window().maximize();
 		this.driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
+	}
+	
+/*	@After()
+	public void teardown() {
+		driver.manage().deleteAllCookies();
+		driver.close();
+		driver.quit();
+	}
+	*/
+	
+	@Given("^user navigates to \"([^\"]*)\"$")
+	public void user_navigates_to(String arg1) throws Throwable {
+
+	}
+
+	@Given("^user clicks on the login portal button$")
+	public void user_clicks_on_the_login_portal_button() throws Throwable {
+
+	}
+
+	@Given("^user enters \"([^\"]*)\" username$")
+	public void user_enters_username(String arg1) throws Throwable {
+
+	}
+
+	@Given("^user enters \"([^\"]*)\"$")
+	public void user_enters(String arg1) throws Throwable {
+
+	}
+
+	@When("^user clicks on the login button$")
+	public void user_clicks_on_the_login_button() throws Throwable {
+
+	}
+
+	@Then("^the user should be prompted with the following prompt alert \"([^\"]*)\"$")
+	public void the_user_should_be_prompted_with_the_following_prompt_alert(String arg1) throws Throwable {
+
 	}
 	
 	@Given("^I access webdriverunivirsity$")
