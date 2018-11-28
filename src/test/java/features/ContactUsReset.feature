@@ -4,8 +4,8 @@ Feature: Contact Us Reset feature
 Scenario: Enter information to the contact us form, the click the reset button and information will be removed
 	Given I access webdriverunivirsity
 	When I click on the contact us button
-	And I enter first name
-	And I enter last name
+	And I enter an invalid first name
+	And I enter an invalid last name
 	And I enter an email address
 	And I enter comments
 	When I click on the reset button
