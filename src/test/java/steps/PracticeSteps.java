@@ -62,7 +62,8 @@ public class PracticeSteps {
         for (String windHandle : driver.getWindowHandles()) {
             driver.switchTo().window(windHandle);
         }
-        driver.findElement(By.id("text")).sendKeys(username);  
+        //driver.findElement(By.id("text")).sendKeys(username); 
+        driver.findElement(By.xpath("//input[@id='text']")).sendKeys(username);
 	}
 
 	@Given("^user enters \"([^\"]*)\"$")

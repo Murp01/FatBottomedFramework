@@ -11,7 +11,7 @@ import cucumber.api.junit.Cucumber;
 		glue = {"steps"},
 		monochrome = true,
 		dryRun = false,
-		tags = {"@Chrome, @Testing"},
+		tags = {"@Firefox, @Testing"},
 		plugin = {"pretty", "html:target/cucumber", 
 				"json:target/cucumber.json", 
 				"com.cucumber.listener.ExtentCucumberFormatter:target/report.html"}

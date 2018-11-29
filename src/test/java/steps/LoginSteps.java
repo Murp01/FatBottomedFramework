@@ -15,10 +15,10 @@ public class LoginSteps {
 
 	}
 
-	@When("^I click on the login button$")
+/*	@When("^I click on the login button$")
 	public void i_click_on_the_login_button() throws Throwable {
 
-	}
+	}*/
 
 	@Then("^I should be presented with a successful validation alert$")
 	public void i_should_be_presented_with_a_successful_validation_alert() throws Throwable {
