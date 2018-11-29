@@ -3,12 +3,13 @@ package steps;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.JavascriptExecutor;
-
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-
+import static org.junit.Assert.*;
 import cucumber.api.DataTable;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
@@ -20,21 +21,30 @@ public class PracticeSteps {
 	
 	WebDriver driver;
 	
-	@Before()
+/*	@Before()
 	public void setup() {
 		System.setProperty("webdriver.gecko.driver", "C:\\Users\\pmurp\\eclipse-workspace\\WebdriverUniversityFramework\\src\\test\\java\\resources\\geckodriver.exe");
 		this.driver = new FirefoxDriver();
 		this.driver.manage().window().maximize();
 		this.driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
+	}*/
+	
+	@Before()
+	public void setup() {
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\pmurp\\eclipse-workspace\\WebdriverUniversityFramework\\src\\test\\java\\resources\\chromedriver.exe");
+		this.driver = new ChromeDriver();
+		this.driver.manage().window().maximize();
+		this.driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
 	}
 	
-/*	@After()
-	public void teardown() {
+	@After()
+	public void teardown() throws Throwable {
+		Thread.sleep(3000);
 		driver.manage().deleteAllCookies();
 		driver.close();
 		driver.quit();
 	}
-	*/
+	
 	
 	@Given("^user navigates to \"([^\"]*)\"$")
 	public void user_navigates_to(String url) throws Throwable {
@@ -48,23 +58,29 @@ public class PracticeSteps {
 	}
 
 	@Given("^user enters \"([^\"]*)\" username$")
-	public void user_enters_username(String arg1) throws Throwable {
-
+	public void user_enters_username(String username) throws Throwable {
+        for (String windHandle : driver.getWindowHandles()) {
+            driver.switchTo().window(windHandle);
+        }
+        driver.findElement(By.id("text")).sendKeys(username);  
 	}
 
 	@Given("^user enters \"([^\"]*)\"$")
-	public void user_enters(String arg1) throws Throwable {
-
+	public void user_enters(String password) throws Throwable {
+		driver.findElement(By.id("password")).sendKeys(password);
 	}
 
 	@When("^user clicks on the login button$")
 	public void user_clicks_on_the_login_button() throws Throwable {
-
+		driver.findElement(By.id("login-button")).click();
 	}
 
 	@Then("^the user should be prompted with the following prompt alert \"([^\"]*)\"$")
-	public void the_user_should_be_prompted_with_the_following_prompt_alert(String arg1) throws Throwable {
-
+	public void the_user_should_be_prompted_with_the_following_prompt_alert(String message) throws Throwable {
+		Alert alert = driver.switchTo().alert();
+		assertEquals(alert.getText().toString().toLowerCase().replaceAll("\\s", ""), message.toLowerCase().replaceAll("\\s", ""));
+		//replace followed by reg ex for replace any space with "" - guess this means no spaces?
+		alert.accept();	
 	}
 	
 	@Given("^I access webdriverunivirsity$")
