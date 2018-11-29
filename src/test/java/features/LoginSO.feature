@@ -1,7 +1,9 @@
 Feature: Login Portal
 	Tests around validating login portal
 	
-@WDUTest	
+#Must be ran in chrome due to issue with login page
+	
+@Testing @Chrome	
 Scenario Outline: Login to account with credentials
 	Given user navigates to "<url>"
 	And user clicks on the login portal button

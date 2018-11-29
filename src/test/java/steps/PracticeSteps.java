@@ -21,15 +21,15 @@ public class PracticeSteps {
 	
 	WebDriver driver;
 	
-/*	@Before()
-	public void setup() {
+	@Before("@Firefox")
+	public void setupFF() {
 		System.setProperty("webdriver.gecko.driver", "C:\\Users\\pmurp\\eclipse-workspace\\WebdriverUniversityFramework\\src\\test\\java\\resources\\geckodriver.exe");
 		this.driver = new FirefoxDriver();
 		this.driver.manage().window().maximize();
 		this.driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
-	}*/
+	}
 	
-	@Before()
+	@Before("@Chrome")
 	public void setup() {
 		System.setProperty("webdriver.chrome.driver", "C:\\Users\\pmurp\\eclipse-workspace\\WebdriverUniversityFramework\\src\\test\\java\\resources\\chromedriver.exe");
 		this.driver = new ChromeDriver();

@@ -18,6 +18,6 @@ import cucumber.api.junit.Cucumber;
 		)
 
 
-public class MainRunner {
+public class MainRunner2 {
 
 }
