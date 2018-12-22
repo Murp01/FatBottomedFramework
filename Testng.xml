@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name = "Cucumber Framework">
-	<test name = "Cucumber Tests" junit = "true">
+	<test name = "Cucumber Tests"  junit = "false">
 		<classes>
-			<class name = "runner.MainRunner.java" />		
+			<class name = "runner.MainRunner" />
+			<class name = "runner.MainRunner2" />
+			
 		</classes>	
 	</test>
 </suite>
+

@@ -62,6 +62,7 @@ public class PracticeSteps {
         for (String windHandle : driver.getWindowHandles()) {
             driver.switchTo().window(windHandle);
         }
+        Thread.sleep(2000); //deelete if it doesn't work
         //driver.findElement(By.id("text")).sendKeys(username); 
         driver.findElement(By.xpath("//input[@id='text']")).sendKeys(username);
 	}
